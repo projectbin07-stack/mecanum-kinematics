@@ -4,7 +4,15 @@ from __future__ import annotations
 
 __version__ = "0.1.0"
 
-from .config import WHEEL_LABELS, ConfigError, RobotConfig, example_names, load_config, load_example
+from .bridge import DriveBridge, OdomSample, pose_covariance_6x6, yaw_to_quaternion
+from .config import (
+    WHEEL_LABELS,
+    ConfigError,
+    RobotConfig,
+    example_names,
+    load_config,
+    load_example,
+)
 from .kinematics import (
     ForwardResult,
     MecanumKinematics,
@@ -23,6 +31,7 @@ from .odometry import (
     wrap_angle,
 )
 from .simulator import DriftReport, SimulationOptions, SimulationResult, simulate
+from .ticks_io import TickLog, TickLogError, integrate_tick_log, read_tick_csv
 from .trajectories import (
     Segment,
     Trajectory,
@@ -39,14 +48,18 @@ __all__ = [
     "WHEEL_LABELS",
     "ConfigError",
     "DriftReport",
+    "DriveBridge",
     "ForwardResult",
     "MecanumKinematics",
     "MecanumOdometry",
+    "OdomSample",
     "Pose2D",
     "RobotConfig",
     "Segment",
     "SimulationOptions",
     "SimulationResult",
+    "TickLog",
+    "TickLogError",
     "Trajectory",
     "Twist",
     "WheelCommand",
@@ -57,11 +70,14 @@ __all__ = [
     "forward_kinematics",
     "integrate_pose",
     "integrate_pose_euler",
+    "integrate_tick_log",
     "inverse_kinematics",
     "line",
     "load_config",
     "load_example",
     "make_trajectory",
+    "pose_covariance_6x6",
+    "read_tick_csv",
     "saturate_wheel_speeds",
     "se2_exp",
     "simulate",
@@ -69,4 +85,5 @@ __all__ = [
     "square",
     "strafe",
     "wrap_angle",
+    "yaw_to_quaternion",
 ]
