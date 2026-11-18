@@ -1,0 +1,88 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mecanum-kinematics"
+version = "0.1.0"
+description = "Kinematics, odometry and a deterministic simulator for 4-wheel mecanum drive robots."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Navaneeth KG" }]
+keywords = ["mecanum", "kinematics", "odometry", "robotics", "ros2", "simulation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "Typing :: Typed",
+]
+dependencies = [
+    "numpy>=1.24,<3",
+    # tomllib is in the standard library from Python 3.11; this is its backport.
+    "tomli>=2.0,<3; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7,<4"]
+dev = [
+    "pytest>=8,<10",
+    "pytest-cov>=5,<8",
+    "ruff>=0.6,<1",
+    "mypy>=1.10,<3",
+]
+
+[project.scripts]
+mecanum = "mecanum_kinematics.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/projectbin07-stack/mecanum-kinematics"
+Issues = "https://github.com/projectbin07-stack/mecanum-kinematics/issues"
+Changelog = "https://github.com/projectbin07-stack/mecanum-kinematics/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mecanum_kinematics"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "docs", "examples", "README.md", "LICENSE", "CHANGELOG.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.coverage.run]
+source = ["mecanum_kinematics"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:", "raise NotImplementedError"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "C4", "RUF", "N", "PT"]
+
+[tool.ruff.lint.per-file-ignores]
+# rclpy callbacks and message fields follow ROS naming, and rclpy is not importable in CI.
+"examples/ros2/*" = ["N802"]
+
+[tool.mypy]
+strict = true
+files = ["src", "tests"]
+mypy_path = "src"
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = ["matplotlib", "matplotlib.*"]
+ignore_missing_imports = true

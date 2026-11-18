@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+# Scratch output of the CLI; the committed sample lives in docs/images/
+/out.svg
+/out.csv
+/poses.csv
