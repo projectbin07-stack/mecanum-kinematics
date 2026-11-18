@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest an addition or a change
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do that is hard or impossible today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: API or CLI sketch if you have one.
+  - type: textarea
+    id: verification
+    attributes:
+      label: How could it be tested without hardware?
+      description: This project only merges what can be unit-tested or simulated.
