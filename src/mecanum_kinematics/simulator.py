@@ -198,9 +198,9 @@ def simulate(
 
     cmd_pose = Pose2D()
     true_pose = Pose2D()
-    wheel_speed = np.zeros(4)
-    wheel_angle = np.zeros(4)
-    counts = np.zeros(4)
+    wheel_speed: FloatArray = np.zeros(4)
+    wheel_angle: FloatArray = np.zeros(4)
+    counts: FloatArray = np.zeros(4)
     saturated_steps = 0
 
     for k in range(steps):

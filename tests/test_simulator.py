@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 
 import numpy as np
+import numpy.typing as npt
 import pytest
 
 from mecanum_kinematics import (
@@ -170,7 +171,7 @@ def test_predicted_covariance_matches_monte_carlo_spread(robot: RobotConfig) -> 
     """
     traj = line(1.0, 0.5, settle=0.0)
     errors = []
-    predicted = np.zeros((3, 3))
+    predicted: npt.NDArray[np.float64] = np.zeros((3, 3))
     for seed in range(300):
         run = simulate(
             robot,

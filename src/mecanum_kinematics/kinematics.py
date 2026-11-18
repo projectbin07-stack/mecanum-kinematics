@@ -130,7 +130,7 @@ class MecanumKinematics:
         canonical /= r
         idx = list(config.order_indices)
         self._jacobian: FloatArray = canonical[idx]
-        self._pinv: FloatArray = np.linalg.pinv(self._jacobian)
+        self._pinv: FloatArray = np.asarray(np.linalg.pinv(self._jacobian), dtype=np.float64)
         null_canonical = np.array([1.0, 1.0, -1.0, -1.0]) / 2.0
         self._null: FloatArray = null_canonical[idx]
 
