@@ -1,0 +1,16 @@
+# ILLUSTRATIVE EXAMPLE - not a measurement of any real or commercial robot.
+# A made-up desktop-sized base with small hobby gear motors. Measure your own
+# robot and write your own file before trusting any odometry.
+name = "generic-small"
+description = "Illustrative desktop-sized base (made-up numbers, not a real product)"
+
+wheel_radius = 0.030      # m
+half_length = 0.080       # m, lx: robot centre to wheel centre along x (forward)
+half_width = 0.090        # m, ly: robot centre to wheel centre along y (left)
+roller_angle_deg = 45.0
+
+ticks_per_rev = 44        # counts per encoder-shaft rev (11 PPR x 4 quadrature edges)
+gear_ratio = 30.0         # encoder-shaft revs per wheel rev
+
+max_wheel_speed = 30.0    # rad/s
+wheel_order = ["FL", "FR", "RL", "RR"]

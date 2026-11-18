@@ -1,0 +1,16 @@
+# ILLUSTRATIVE EXAMPLE - not a measurement of any real or commercial robot.
+# A made-up research-platform-sized base. Measure your own robot and write
+# your own file before trusting any odometry.
+name = "generic-medium"
+description = "Illustrative research-platform-sized base (made-up numbers, not a real product)"
+
+wheel_radius = 0.050      # m
+half_length = 0.150       # m, lx
+half_width = 0.170        # m, ly
+roller_angle_deg = 45.0
+
+ticks_per_rev = 2000      # counts per encoder-shaft rev (500 PPR x 4)
+gear_ratio = 19.0
+
+max_wheel_speed = 25.0    # rad/s
+wheel_order = ["FL", "FR", "RL", "RR"]

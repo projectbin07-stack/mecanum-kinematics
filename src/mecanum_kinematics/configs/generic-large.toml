@@ -1,0 +1,16 @@
+# ILLUSTRATIVE EXAMPLE - not a measurement of any real or commercial robot.
+# A made-up cart-sized base, listed in a non-default wheel order to show that
+# the order of every wheel array follows `wheel_order`.
+name = "generic-large"
+description = "Illustrative cart-sized base with FR-first wheel order (made-up numbers)"
+
+wheel_radius = 0.076      # m
+half_length = 0.250       # m, lx
+half_width = 0.280        # m, ly
+roller_angle_deg = 45.0
+
+ticks_per_rev = 4096      # counts per encoder-shaft rev
+gear_ratio = 25.0
+
+max_wheel_speed = 18.0    # rad/s
+wheel_order = ["FR", "FL", "RR", "RL"]
